@@ -1,0 +1,31 @@
+.panel.panel-default.devise-bs
+  .panel-heading
+    %h4= t('.sign_in', :default => "Sign in")
+  .panel-body
+    = form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: "form" }) do |f|
+      .form-group
+        = f.label :name
+        = f.text_field :name, autofocus: true, class: "form-control"
+      .form-group
+        = f.label :password
+        = f.password_field :password, autocomplete: "off", class: "form-control"
+      - if devise_mapping.rememberable?
+        .checkbox
+          = f.label :remember_me do
+            = f.check_box :remember_me
+            remember me
+        .form-group
+          .radio
+            %label
+              %input{:checked => "checked", :name => "protocol", :type => "radio", :value => "long_pool"}>/
+              Long Pool
+          .radio
+            %label
+              %input{:name => "protocol", :type => "radio", :value => "ajax"}>/
+              Short polling
+          .radio
+            %label
+              %input{:name => "protocol", :type => "radio", :value => "cable"}>/
+              WebSocket
+      = f.submit  t('.sign_in', :default => "Sign in"), class: "btn btn-primary", value: "submit"
+= render "devise/shared/links"

@@ -1,0 +1,1 @@
+User.clear_online_via_sockets

@@ -1,0 +1,25 @@
+#templates
+  .media.msg{:style=>"display:none;"}
+    .row
+      .col-lg-6.col-sm-6.col-xs-6
+        %h5.media-heading {{name}}
+      .col-lg-6.col-sm-6.col-xs-6
+        %small.pull-right.time
+          %i.fa.fa-clock-o
+          {{time}}
+    .media-body
+    .msg_header
+    %small.col-lg-10 {{text}}
+.container
+  .row
+    .online-wrap.col-lg-3
+      .online-panel
+        %h3 users online
+        %ul
+    .message-wrap.col-lg-9
+      .msg-wrap
+      .send-wrap
+        %textarea#new_message_textarea.form-control.send-message{:placeholder => "Write a reply...", :rows => "3"}
+      .btn-panel.text-right
+        %a#new_message_btn.col-md-12.col-lg-12.col-sm-12.btn.btn-success{:role => "button"}
+          Send Message
